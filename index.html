@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fedor Goossens – CV</title>
+  <meta name="description" content="CV-website van Fedor Goossens – Systeem- en Netwerkbeheerder. Zachte pastelstijl, responsive en printvriendelijk." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f7fb; --bg-grad-1:#f7f9ff; --bg-grad-2:#fef6f8;
+      --card:#ffffff; --text:#1f2937; --muted:#667085;
+      --primary:#9b8cff; --primary-600:#8776ff; --accent:#ffd4e1; --accent-2:#c6f3e6;
+      --ring:0 12px 30px rgba(155,140,255,.25); --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);
+      background:radial-gradient(1200px 600px at 10% -10%, var(--bg-grad-1), transparent 60%),
+                 radial-gradient(900px 450px at -10% 100%, var(--accent-2), transparent 55%),
+                 radial-gradient(1000px 500px at 110% 10%, var(--accent), transparent 50%),
+                 var(--bg);
+      line-height:1.6}
+    .container{width:min(1100px,92%);margin-inline:auto}
+    header{position:sticky;top:0;backdrop-filter:blur(8px);background:rgba(255,255,255,.55);border-bottom:1px solid rgba(0,0,0,.05);z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
+    .logo{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--primary),#b1a6ff);box-shadow:var(--ring)}
+    .nav a{text-decoration:none;color:var(--muted);font-weight:600;margin-left:18px}
+    .nav a:hover{color:var(--text)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:14px;border:1px solid transparent;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;box-shadow:var(--ring);transition:.22s ease;cursor:pointer}
+    .btn:hover{transform:translateY(-1px);background:var(--primary-600)}
+    .btn.outline{background:rgba(255,255,255,.8);color:var(--text);border-color:rgba(0,0,0,.08);box-shadow:none}
+    .btn.outline:hover{background:#fff}
+    .hero{padding:64px 0 32px}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+    .pfp{width:180px;height:180px;border-radius:28px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 24px 48px rgba(31,41,55,.15);position:relative;overflow:hidden}
+    .pfp::after{content:"";position:absolute;inset:0;background:radial-gradient(300px 200px at 30% 20%, rgba(255,255,255,.35), transparent 60%)}
+    .hero h1{font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0 0 10px;letter-spacing:-.5px}
+    .hero p{font-size:clamp(16px,2vw,18px);color:var(--muted);margin:0 0 22px}
+    .quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .chip{background:#fff;border:1px solid rgba(0,0,0,.06);padding:10px 12px;border-radius:12px;font-weight:700;text-align:center;box-shadow:0 10px 22px rgba(0,0,0,.05)}
+    .section{padding:48px 0}
+    .section h2{font-size:clamp(24px,3vw,34px);margin:0 0 8px}
+    .section p.lead{color:var(--muted);margin:0 0 18px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:22px;box-shadow:0 14px 28px rgba(31,41,55,.07);transition:.25s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 24px 46px rgba(31,41,55,.08)}
+    .tag{font-size:12px;font-weight:800;color:#4338ca;background:#eef2ff;padding:6px 10px;border-radius:999px;display:inline-block}
+    .skill{display:flex;align-items:center;justify-content:space-between;margin:10px 0}
+    .bar{height:10px;background:#eef2ff;border-radius:999px;overflow:hidden;width:58%}
+    .fill{height:100%;background:linear-gradient(90deg,var(--primary),#b1a6ff)}
+    .timeline{display:grid;gap:14px}
+    .t-item{display:grid;gap:6px;padding:16px;border:1px solid rgba(0,0,0,.06);border-radius:16px;background:#fff}
+    .t-top{display:flex;align-items:center;justify-content:space-between}
+    .t-role{font-weight:800}
+    .t-meta{color:var(--muted);font-size:14px}
+    form{display:grid;gap:12px;margin-top:10px}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(0,0,0,.08);background:rgba(255,255,255,.9);outline:none;transition:.2s ease}
+    input:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(155,140,255,.18)}
+    textarea{min-height:120px;resize:vertical}
+    footer{margin-top:40px;padding:28px 0;color:#6b7280;font-size:14px}
+    @media (max-width: 940px){.hero-grid{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.quick{grid-template-columns:1fr 1fr}}
+    @media print{header,.btn-print-hide,.chip,.nav{display:none !important}body{background:#fff}.card{box-shadow:none}a[href]::after{content:" (" attr(href) ")";font-size:12px;color:#555}.section{padding:20px 0}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><div class="logo" aria-hidden="true"></div><span>CV – Pastel</span></div>
+      <nav>
+        <a href="#over">Over</a>
+        <a href="#skills">Skills</a>
+        <a href="#ervaring">Ervaring</a>
+        <a href="#projecten">Projecten</a>
+        <a href="#opleiding">Opleiding</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="over" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="tag">Beschikbaar voor projecten / stage</span>
+        <h1>Fedor Goossens</h1>
+        <p><strong>Systeem‑ en Netwerkbeheerder</strong> — Praktijkgerichte student met ervaring uit werkplekleren. Sterk in het opzetten, configureren en troubleshooten van Cisco‑netwerken, en in beheer van Windows‑ en Linux‑omgevingen. Ervaring met security‑labs, webservers en automatisering via PowerShell en Python.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap" class="btn-print-hide">
+          <a class="btn" href="#contact">Neem contact op</a>
+          <a class="btn outline" href="cv.pdf" download>Download CV (PDF) – NL</a>
+          <button class="btn outline" onclick="window.print()">Print</button>
+        </div>
+        <div class="quick" aria-label="Snel info">
+          <div class="chip">📍 Wijkstraat 5, 3960 Bree, België</div>
+          <div class="chip">📧 <a href="mailto:fedor.goossens@student.pxl.be" style="text-decoration:none;color:inherit">fedor.goossens@student.pxl.be</a></div>
+          <div class="chip">🔗 <a href="https://www.linkedin.com/in/fedor-goossens-094803205" target="_blank" rel="noreferrer" style="text-decoration:none;color:inherit">linkedin.com/in/fedor-goossens-094803205</a></div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center">
+        <div class="pfp" aria-label="Profielillustratie / foto placeholder" title="Tel. +32 471 47 57 77"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Technische skills</h2>
+        <p class="lead">Kerntechnologieën en focusgebieden.</p>
+        <div class="skill"><span>Linux / Windows Admin</span><div class="bar"><div class="fill" style="width:85%"></div></div><span>85%</span></div>
+        <div class="skill"><span>Netwerken (Cisco · VLAN · OSPF · ACL · NAT/DHCP)</span><div class="bar"><div class="fill" style="width:82%"></div></div><span>82%</span></div>
+        <div class="skill"><span>PowerShell & Python Scripting</span><div class="bar"><div class="fill" style="width:72%"></div></div><span>72%</span></div>
+        <div class="skill"><span>Security & Digital Forensics (Kali, hashing, recovery)</span><div class="bar"><div class="fill" style="width:68%"></div></div><span>68%</span></div>
+        <div class="skill"><span>Docker & Virtualisatie (TrueNAS, VMs)</span><div class="bar"><div class="fill" style="width:70%"></div></div><span>70%</span></div>
+      </div>
+      <div class="card">
+        <h2>Sterktes</h2>
+        <p class="lead">Manier van werken en meerwaarde.</p>
+        <ul>
+          <li>Probleemoplossend, analytisch en gestructureerd.</li>
+          <li>Teamspeler met duidelijke communicatie.</li>
+          <li>Leergierig: volgt cursussen en labs naast school.</li>
+          <li>Focus op security, betrouwbaarheid en automatisatie.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="ervaring" class="section">
+    <div class="container">
+      <h2>Ervaring</h2>
+      <p class="lead">Praktijkervaring via werkplekleren en labs.</p>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-top"><div class="t-role">Werkplekleren – PXL Hogeschool</div><div class="t-meta">2024 – 2025 · Hasselt</div></div>
+          <ul>
+            <li>Ontwerp en opzet van netwerk met Cisco routers & switches (VLAN’s, routing, NAT/DHCP).</li>
+            <li>Windows‑omgeving beheerd in virtuele machines; firewalltaken en PowerShell scripts.</li>
+            <li>Linux webserver ingericht (Apache/Nginx) en eigen HTML‑pagina’s gehost.</li>
+            <li>Security‑oefeningen: hashes kraken, verborgen data opsporen en herstel.</li>
+            <li>Oracle basiscommando’s toegepast; examen succesvol afgerond.</li>
+            <li>Python ingezet voor kleine netwerk/security‑scripts; Docker in Linux & Windows.</li>
+          </ul>
+        </div>
+        <div class="t-item">
+          <div class="t-top"><div class="t-role">Security Labs & Projecten</div><div class="t-meta">2023 – heden</div></div>
+          <ul>
+            <li>Cisco‑netwerken troubleshooten; fysieke switches configureren.</li>
+            <li>TrueNAS‑schijfbeheer en virtualisatie op Windows en Linux.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projecten" class="section">
+    <div class="container">
+      <h2>Projecten</h2>
+      <p class="lead">Selectie van school- en eigen projecten.</p>
+      <div class="grid-3">
+        <article class="card">
+          <span class="tag">Networking</span>
+          <h3>Cisco Campus Network</h3>
+          <p>Ontwerp met VLANs, OSPF, ACL’s en NAT/DHCP. Inclusief documentatie en configuratiebestanden.</p>
+          <a class="btn outline" href="#" target="_blank" rel="noreferrer">Bekijk configuraties</a>
+        </article>
+        <article class="card">
+          <span class="tag">DFIR</span>
+          <h3>Memory Forensics</h3>
+          <p>Analyse met Volatility: procesanalyse, IOC’s en rapportering voor oefencasus.</p>
+          <a class="btn outline" href="#" target="_blank" rel="noreferrer">Lees rapport</a>
+        </article>
+        <article class="card">
+          <span class="tag">Automation</span>
+          <h3>NetSec Scripts</h3>
+          <p>PowerShell & Python scripts voor netwerk‑scan, log‑parsing en kleine audits.</p>
+          <a class="btn outline" href="#" target="_blank" rel="noreferrer">Naar repository</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="opleiding" class="section">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Opleiding</h2>
+        <div class="t-item">
+          <div class="t-top"><div class="t-role">Graduaat Systeem‑ en Netwerkbeheer – PXL Hogeschool</div><div class="t-meta">Sept 2023 – Dec 2025 · Hasselt</div></div>
+          <p>Vakken: Networks 1 & 2 · Linux Essentials/Advanced · Windows Essentials/Advanced · Network Enterprise 1 & 2 · Security Essentials/Advanced · Virtualisatie (Docker, TrueNAS) · Werkplekleren 1 & 2.</p>
+        </div>
+        <div class="t-item">
+          <div class="t-top"><div class="t-role">Secundair / Vooropleiding</div><div class="t-meta">—</div></div>
+          <p>Korte beschrijving of specialisatie.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Persoonlijke gegevens & Certificaten</h2>
+        <ul>
+          <li>Nationaliteit: Belg · Geboren: 18 februari 2002 (Bree)</li>
+          <li>Rijbewijs: AM, B</li>
+          <li>CCNA (in opleiding)</li>
+          <li>TryHackMe / HTB badges</li>
+          <li>Oracle basiscommando’s (examen behaald)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p class="lead">Gebruik het formulier of mail rechtstreeks.</p>
+      <div class="card">
+        <form onsubmit="event.preventDefault(); fakeSubmit(this)">
+          <div style="display:grid;gap:12px;grid-template-columns:1fr 1fr">
+            <label>
+              <span style="display:block;font-weight:600;margin-bottom:6px">Naam</span>
+              <input required type="text" name="name" placeholder="Uw naam" />
+            </label>
+            <label>
+              <span style="display:block;font-weight:600;margin-bottom:6px">E‑mail</span>
+              <input required type="email" name="email" placeholder="naam@voorbeeld.com" />
+            </label>
+          </div>
+          <label>
+            <span style="display:block;font-weight:600;margin-bottom:6px">Bericht</span>
+            <textarea required name="message" placeholder="Waar kan ik mee helpen?"></textarea>
+          </label>
+          <div style="display:flex;gap:10px;align-items:center">
+            <button class="btn" type="submit">Versturen</button>
+            <span id="status" style="color:var(--muted)"></span>
+          </div>
+        </form>
+      </div>
+      <p style="margin-top:10px;color:var(--muted)">Of mail naar <a href="mailto:fedor.goossens@student.pxl.be">fedor.goossens@student.pxl.be</a> · Tel. <a href="tel:+32471475777">+32 471 47 57 77</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Fedor Goossens — CV site</div>
+  </footer>
+
+  <script>
+    const yearEl = document.getElementById('year');
+    if(yearEl){ yearEl.textContent = new Date().getFullYear(); }
+    function fakeSubmit(form){
+      const status = document.getElementById('status');
+      status.textContent = 'Bericht verzonden (demo).';
+      form.reset();
+      setTimeout(()=> status.textContent = '', 2500);
+    }
+  </script>
+</body>
+</html>
